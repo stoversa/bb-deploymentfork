@@ -1,7 +1,12 @@
 const router = require("express").Router();
-const bookRoutes = require("./books");
+const meetingRoutes = require("./meetingAPI");
+const commentRoutes = require("./commentsAPI");
 
-// Book routes
-router.use("/books", bookRoutes);
+
+// API Routes
+
+router.use("/api/meetings", meetingRoutes);
+router.use("/api/comments", commentRoutes);
+
 
 module.exports = router;
