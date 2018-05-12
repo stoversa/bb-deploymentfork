@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const User = require('../../db/models/user')
-const passport = require('../../passport')
+const User = require('../../db/models/user');
+const passport = require('../../passport');
 
 
 // this route is just used to get the user basic info
@@ -12,7 +12,7 @@ router.get('/user', (req, res, next) => {
 	} else {
 		return res.json({ user: null })
 	}
-})
+});
 
 router.post(
 	'/login',
@@ -32,7 +32,7 @@ router.post(
 		}
 		res.json({ user: cleanUser })
 	}
-)
+);
 
 router.post('/logout', (req, res) => {
 	if (req.user) {
@@ -42,7 +42,7 @@ router.post('/logout', (req, res) => {
 	} else {
 		return res.json({ msg: 'no user to log out!' })
 	}
-})
+});
 
 router.post('/signup', (req, res) => {
 	const { username, password } = req.body
@@ -62,6 +62,6 @@ router.post('/signup', (req, res) => {
 			return res.json(savedUser)
 		})
 	})
-})
+});
 
 module.exports = router

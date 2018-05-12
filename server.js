@@ -16,8 +16,7 @@ const routes = require("./routes");
 const path = require("path");
 const passport = require('./passport');
 const app = express();
-// const router = express.Router();
-// const http = require('http').Server(app);
+const http = require('http').Server(app);
 const socket = require("socket.io");
 const PORT = process.env.PORT || 8080;
 
@@ -40,9 +39,10 @@ app.use(
   })
 )
 
-server = app.listen(process.env.PORT || 3000, () => {
+server = app.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`);
 });
+
 
 io = socket(server);
 
@@ -54,11 +54,6 @@ io.on('connection', (socket) => {
   });
 });
 
-// ===== Passport ====
-app.use(passport.initialize())
-app.use(passport.session()) // will call the deserializeUser
-
-
 // ====== Error handler ====
 app.use(function (err, req, res, next) {
   console.log('====== ERROR =======')
@@ -68,3 +63,6 @@ app.use(function (err, req, res, next) {
 
 // Add API Routes
 app.use(routes);
+// ===== Passport ====
+app.use(passport.initialize())
+app.use(passport.session()) // will call the deserializeUser
