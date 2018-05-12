@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import './App.css'
 import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
@@ -11,26 +11,9 @@ import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
 import Review from './components/Meetings/CurrentMeeting/Subcomponents/Review'
 import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting'
-import Chat from "./components/Chat/Chat";
+// import Chat from "./components/Chat/Chat";
 import { slide as Menu } from 'react-burger-menu';
 
-class Example extends React.Component {
-	showSettings(event) {
-		event.preventDefault();
-
-	}
-
-	render() {
-		return (
-			<Menu>
-				<a className="menu-item" href="/">Home</a>
-				<a className="menu-item" href="/meetings">Meeting</a>
-				<a className="menu-item" href="/meeting-stats">Meeting Stats</a>
-				<a className="menu-item" href="/contact">Logout</a>
-			</Menu>
-		);
-	}
-}
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -175,9 +158,9 @@ class App extends Component {
 				/>
 				<Route exact path="/signup" component={SignupForm} />
 				{/* <LoginForm _login={this._login} /> */}
-				<div className="globalChat">
+				{/* <div className="globalChat">
 					<Chat />
-				</div>
+				</div> */}
 			</div>
 		)
 	}

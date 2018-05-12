@@ -24,12 +24,13 @@ app.use(express.static("client/build"))
 
 // ===== Middleware ====
 app.use(morgan('dev'))
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
+
+// Body Parser
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: 'application/vnd.api+json'}))
+
 app.use(
   session({
     secret: process.env.APP_SECRET || 'this is the default passphrase',
