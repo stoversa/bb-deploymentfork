@@ -63,8 +63,9 @@ app.use(function (err, req, res, next) {
   res.status(500)
 });
 
-// Add API Routes
-app.use(routes);
 // ===== Passport ====
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
+
+// Add API Routes
+app.use(routes);

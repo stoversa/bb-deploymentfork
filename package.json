@@ -35,6 +35,5 @@
     "save": "^2.3.2",
     "socket.io": "^2.1.0",
     "socket.io-client": "^2.1.0"
-  },
-  "proxy": "http://localhost:8080/"
+  }
 }
