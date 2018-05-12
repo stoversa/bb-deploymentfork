@@ -20,6 +20,8 @@ const http = require('http').Server(app);
 const socket = require("socket.io");
 const PORT = process.env.PORT || 8080;
 
+app.use(express.static("client/build"))
+
 // ===== Middleware ====
 app.use(morgan('dev'))
 app.use(
